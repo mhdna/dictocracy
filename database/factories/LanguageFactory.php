@@ -17,7 +17,8 @@ class LanguageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 'name' => fake()->randomElement(["ar", "en"])
+            'name' => "ar"
         ];
     }
 }

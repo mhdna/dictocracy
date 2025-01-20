@@ -17,7 +17,9 @@ class DialectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'language_id' => 1,
+            'name' => fake()->name(),
+            'logo' => fake()->imageUrl()
         ];
     }
 }
