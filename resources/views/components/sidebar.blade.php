@@ -1,12 +1,15 @@
+@props(['user_words'])
+
 <div class="max-w-[439px] flex flex-col mb-5 4">
     <div class="bg-yellow-800 rounded-full px-12 py">
         <div>
             Latest Words:
         </div>
-        <div>word</div>
-        <div>word</div>
-        <div>word</div>
-        <div>word</div>
+        @auth
+        @foreach ($user_words as $word)
+            <div>{{$word}}</div>
+        @endforeach
+        @endauth
     </div>
 
 

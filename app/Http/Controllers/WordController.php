@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWordRequest;
 use App\Http\Requests\UpdateWordRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Dialect;
+use App\Models\User;
 use App\Models\Word;
 
 class WordController extends Controller
@@ -13,7 +16,11 @@ class WordController extends Controller
      */
     public function index()
     {
-        //
+        return view('words.index', [
+            'words' => Word::all(),
+            'dialects' => Dialect::all(),
+            'user_words' => auth()->check() ? auth()->user()->words : collect()
+        ]);
     }
 
     /**
