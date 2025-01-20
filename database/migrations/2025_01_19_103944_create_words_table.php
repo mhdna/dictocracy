@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Dialect;
+use App\Models\Language;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Language::class);
+            $table->foreignIdFor(Dialect::class);
             $table->id();
             $table->string('word');
             $table->string('meaning');
-            $table->string('dialect');
             $table->string('example');
             $table->integer('upvotes');
             $table->integer('downvotes');
