@@ -1,6 +1,10 @@
 {{-- TODO I have duplication for $defintion->term --}}
 @props(['user_definitions'])
 
+@php
+    $i = 1;
+@endphp
+
 <div class="max-w-[439px] flex flex-col mb-5 4">
     @auth
         <div class="bg-yellow-800 rounded-full px-12 py">
@@ -8,7 +12,7 @@
                 Your Terms:
             </div>
             @foreach ($user_definitions as $definition)
-                <div>{{ $definition->term->term }}</div>
+                <div>{{ $i++ . '- ' . $definition->term->term }}</div>
             @endforeach
         </div>
 

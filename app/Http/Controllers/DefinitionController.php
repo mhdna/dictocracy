@@ -17,7 +17,7 @@ class DefinitionController extends Controller
     public function home()
     {
         $definitions = Definition::paginate(10);
-        $user_definitons = auth()->check() ? auth()->user()->definitions()->get() : collect();
+        $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(15)->get() : collect();
 
         return view('definitions.home', [
             'definitions' => $definitions,
