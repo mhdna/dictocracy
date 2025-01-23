@@ -19,7 +19,7 @@ class DefinitionController extends Controller
         $definitions = Definition::paginate(10);
         $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(15)->get() : collect();
 
-        return view('definitions.home', [
+        return view('home', [
             'definitions' => $definitions,
             'dialects' => Dialect::all(),
             'user_definitions' => $user_definitons
@@ -48,14 +48,6 @@ class DefinitionController extends Controller
         return view('definitions.term_page', [
             'term' => $term,
             'definitions' => $definitions
-        ]);
-    }
-
-    public function profile(string $user_id)
-    {
-        $user = User::findOrFail($user_id);
-        return view('definitions.profile', [
-            'user' => $user
         ]);
     }
 }
