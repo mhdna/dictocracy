@@ -1,9 +1,9 @@
 {{-- TODO: Super confusing mix between under_definition and defintions --}}
 <x-layout>
     <div class="flex flex-col justify-between">
-        <div>12 Definitions</div>
         @if ($definitions)
             <h2 class="font-extrabold text-5xl">{{ $term }}</h2>
+            <div>{{ count($definitions) }} Definitions</div>
             @foreach ($definitions as $definition)
                 <a class="bg-yellow-300 text-black" href="/profile/{{ $definition->user->id }}">Author:
                     {{ $definition->user->name }}</a>
