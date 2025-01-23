@@ -14,16 +14,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('words', function (Blueprint $table) {
-            $table->foreignIdFor(User::class);
+        Schema::create('terms', function (Blueprint $table) {
             $table->foreignIdFor(Language::class);
-            $table->foreignIdFor(Dialect::class);
             $table->id();
             $table->string('word');
-            $table->string('meaning');
-            $table->string('example');
-            $table->integer('upvotes');
-            $table->integer('downvotes');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('words');
+        Schema::dropIfExists('terms');
     }
 };

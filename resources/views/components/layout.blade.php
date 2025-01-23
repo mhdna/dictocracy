@@ -8,7 +8,10 @@
     <title>Welcome</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} "> <!-- Custom stlylesheet -->
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
 </head>
 
 <body class="text-black dark:bg-[#111111] bg-[#faf9f4] dark:text-white">
@@ -19,9 +22,11 @@
                 <a href="#">Language</a>
                 <a href="#">Browse</a>
                 <a href="#">Dialects</a>
-                <a href="#">Add term</a>
+                @auth
+                    <a href="#">Add term</a>
+                @endauth
             </div>
-            <div>
+            <div class="flex">
                 <button id="theme-toggle" type="button"
                     class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -51,15 +56,33 @@
             </div>
 
         </nav>
-        <div class="flex items-center bg-gray-400 rounded-full px-4 py-4 shadow-md mt-3 mx-20">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                class="dark:fill-yellow-400 fill-black">
-                <path
-                    d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
-                </path>
-            </svg>
-            <input type="text" placeholder="Search..."
-                class="flex-grow bg-transparent outline-none text-gray-700 px-2" />
+        <div class="flex items-center mt-3 mx-20">
+            <x-letters-navigator />
+        </div>
+        {{-- <div class="flex items-center bg-gray-400 rounded-full px-4 py-4 shadow-md mt-3 mx-20"> --}}
+        {{--     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" --}}
+        {{--         class="dark:fill-yellow-400 fill-black"> --}}
+        {{--         <path --}}
+        {{--             d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"> --}}
+        {{--         </path> --}}
+        {{--     </svg> --}}
+        {{--     <input type="text" placeholder="Search..." --}}
+        {{--         class="flex-grow bg-transparent outline-none text-gray-700 px-2" /> --}}
+        {{-- </div> --}}
+        <div class="container">
+            <div class="card mt-5">
+                {{-- <h3 class="card-header p-3">Laravel 11 Autocomplete Search from Database - ItSolutionStuff.com</h3> --}}
+                <div class="card-body">
+                    <form action="{{ route('search') }}" method="GET" enctype="multipart/form-data" class="mt-2">
+                        {{-- @csrf --}}
+                        <input class="typeahead form-control bg-yellow-300 text-black" id="search" name="query"
+                            type="text">
+                        <div class="mb-3 mt-3">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -67,5 +90,19 @@
         {{ $slot }}
     </main>
 </body>
+
+<script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+
+    $('#search').typeahead({
+        source: function(query, process) {
+            return $.get(path, {
+                query: query
+            }, function(data) {
+                return process(data);
+            });
+        }
+    });
+</script>
 
 </html>

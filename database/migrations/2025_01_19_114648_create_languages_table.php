@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Language;
-use App\Models\Word;
+use App\Models\Term;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

@@ -11,9 +11,9 @@ class Language extends Model
     /** @use HasFactory<\Database\Factories\LanguageFactory> */
     use HasFactory;
 
-    public function words(): HasMany
+    public function terms(): HasMany
     {
-        return $this->hasMany(Word::class);
+        return $this->hasMany(Term::class);
     }
     public function dialects(): HasMany
     {

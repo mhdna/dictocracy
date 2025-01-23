@@ -1,11 +1,20 @@
 <?php
 
 use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\WordController;
+use App\Http\Controllers\DefinitionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WordController::class, 'index']);
+Route::get('/', [DefinitionController::class, 'home']);
+Route::get('/autocomplete', [SearchController::class, 'autoComplete'])->name('autocomplete');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/index', [DefinitionController::class, 'index']);
+Route::get('/term/{term}', [DefinitionController::class, 'term']);
+
+// Route::middleware('auth')->group(function () {
+Route::get('/profile/{user_id}', [DefinitionController::class, 'profile']);
+// });
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisteredUserController::class,  'create']);

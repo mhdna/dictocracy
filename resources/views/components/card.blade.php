@@ -1,12 +1,18 @@
-@props(['word'])
+{{-- TODO fix attempt to read property (e.g. logo) on null --}}
+
+@props(['definition'])
+
+@php
+    $term = $definition->word;
+@endphp
 
 <div class="max-w-[639px] flex flex-col mb-5 bg-yellow-800 rounded-full px-12 py-4 dark:bg-blue-400">
     <!-- max-h-[667px] -->
     <div>
-        <h2>{{ $word->word }}</h2>
+        <h2>{{ $term->word }}</h2>
         <div>Onzul lee creative</div>
         {{-- Only show dialects for Arabic --}}
-        @if ($word->language->name === 'ar')
+        @if ($term->language->name === 'ar')
             <div>
                 <span>Phrase in:</span>
                 <span>Dailect 1</span>
@@ -15,18 +21,18 @@
         @endif
 
         <div>
-            {{ $word->meaning }}
+            {{ $definition->definition }}
         </div>
 
         <div>
-            {{ $word->example }}
+            {{ $definition->example }}
         </div>
     </div>
 
     <div class="flex justify-between">
         <div class="flex justify-between">
-            <div>Upvotes: {{ $word->upvotes }}</div>
-            <div>Downvotes: {{ $word->downvotes }}</div>
+            <div>Upvotes: {{ $definition->upvotes }}</div>
+            <div>Downvotes: {{ $definition->downvotes }}</div>
         </div>
 
         <div class="flex justify-between">
@@ -37,8 +43,8 @@
 
         <div>
             Created by:
-            <img src="{{ $word->user->logo }}" alt="User Logo">
-            {{ $word->user->name }}
+            <img src="{{ $definition->user->logo }}" alt="User Logo">
+            {{ $definition->user->name }}
         </div>
     </div>
 </div>

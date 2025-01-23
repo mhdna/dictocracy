@@ -1,20 +1,21 @@
-@props(['user_words'])
+{{-- TODO I have duplication for $defintion->word --}}
+@props(['user_definitions'])
 
 <div class="max-w-[439px] flex flex-col mb-5 4">
-    <div class="bg-yellow-800 rounded-full px-12 py">
-        <div>
-            Latest Words:
+    @auth
+        <div class="bg-yellow-800 rounded-full px-12 py">
+            <div>
+                Latest Terms:
+            </div>
+            @foreach ($user_definitions as $definition)
+                <div>{{ $definition->word->word }}</div>
+            @endforeach
         </div>
-        @auth
-        @foreach ($user_words as $word)
-            <div>{{$word}}</div>
-        @endforeach
-        @endauth
-    </div>
 
 
-    <div class="bg-yellow-800 rounded-full px-12 py">
-        <div>Your words Activity:</div>
-        <div>Graph here <a href="https://apexcharts.com/docs/chart-types/line-chart/">Line Chart</a></div>
-    </div>
+        <div class="bg-yellow-800 rounded-full px-12 py">
+            <div>Your terms Activity:</div>
+            <div>Graph here <a href="https://apexcharts.com/docs/chart-types/line-chart/">Line Chart</a></div>
+        </div>
+    @endauth
 </div>
