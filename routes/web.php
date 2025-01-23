@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SessionController;
@@ -12,8 +13,12 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/index', [DefinitionController::class, 'index']);
 Route::get('/term/{term}', [DefinitionController::class, 'term']);
 
-// Route::middleware('auth')->group(function () {
-Route::get('/profile/{user_id}', [DefinitionController::class, 'profile']);
+Route::get('/user/{user_id}', [ProfileController::class, 'profile']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/account', [ProfileController::class, 'account'])->name('account');
+});
+
 // });
 
 Route::middleware('guest')->group(function () {

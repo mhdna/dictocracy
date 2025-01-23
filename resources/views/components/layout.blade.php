@@ -42,6 +42,10 @@
                 </button>
 
                 @auth
+                    <div>
+                        <a href="{{ route('account') }}"><img src="https://placehold.co/40x40" class="rounded-full mr-3"
+                                alt="logo"></a>
+                    </div>
                     <form method="POST" action="/logout">
                         @csrf
                         @method('DELETE')
