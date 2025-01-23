@@ -16,8 +16,8 @@ class DefinitionController extends Controller
 {
     public function home()
     {
-        $definitions = Definition::with('term')->paginate(10);
-        $user_definitons = auth()->check() ? auth()->user()->definitions()->with('term')->get() : collect();
+        $definitions = Definition::paginate(10);
+        $user_definitons = auth()->check() ? auth()->user()->definitions()->get() : collect();
 
         return view('definitions.home', [
             'definitions' => $definitions,
@@ -43,7 +43,7 @@ class DefinitionController extends Controller
     {
         $definitions = Definition::whereHas('term', function ($query) use ($term) {
             $query->where('term', $term);
-        })->with('term')->get();
+        })->withOnly('term')->get();
 
         return view('definitions.term_page', [
             'term' => $term,

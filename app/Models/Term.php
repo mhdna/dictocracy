@@ -12,6 +12,8 @@ class Term extends Model
 {
     /** @use HasFactory<\Database\Factories\TermFactory> */
     use HasFactory;
+
+    public $with = ['language'];
     /**
      * @return BelongsToMany<User,Term>
      */

@@ -12,6 +12,8 @@ class Definition extends Model
     /** @use HasFactory<\Database\Factories\DefinitionFactory> */
     use HasFactory;
 
+    public $with = ['term', 'dialects', 'user'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
