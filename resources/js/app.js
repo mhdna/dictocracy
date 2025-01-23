@@ -1,3 +1,3 @@
 // import './bootstrap';
-import './toggletheme.js';
-
+import "./toggletheme.js";
+import "./createchart.js";

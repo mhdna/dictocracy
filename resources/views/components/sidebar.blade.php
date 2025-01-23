@@ -17,9 +17,10 @@
         </div>
 
 
-        <div class="bg-yellow-800 rounded-full px-12 py">
+        <div class="border border-white rounded-full py-0 px-0 mt-5">
             <div>Your terms Activity:</div>
-            <div>Graph here <a href="https://apexcharts.com/docs/chart-types/line-chart/">Line Chart</a></div>
+            <div class="max-w-[650px] m-[35px] dark:text-black" id="chart">
+            </div>
         </div>
     @endauth
 </div>
