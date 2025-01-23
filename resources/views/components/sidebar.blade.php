@@ -1,14 +1,14 @@
-{{-- TODO I have duplication for $defintion->word --}}
+{{-- TODO I have duplication for $defintion->term --}}
 @props(['user_definitions'])
 
 <div class="max-w-[439px] flex flex-col mb-5 4">
     @auth
         <div class="bg-yellow-800 rounded-full px-12 py">
             <div>
-                Latest Terms:
+                Your Terms:
             </div>
             @foreach ($user_definitions as $definition)
-                <div>{{ $definition->word->word }}</div>
+                <div>{{ $definition->term->term }}</div>
             @endforeach
         </div>
 

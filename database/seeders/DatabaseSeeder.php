@@ -29,10 +29,10 @@ class DatabaseSeeder extends Seeder
             'is_admin' => false,
         ]);
 
-        User::factory(10)->create();
-        Language::factory(10)->create();
-        Dialect::factory(10)->create();
-        Term::factory(1000)->create();
-        Definition::factory(2000)->create();
+        User::factory(100)->create();
+        Language::factory(3)->create();
+        Dialect::factory(25)->create();
+        Term::factory(5000)->create();
+        Definition::factory(10000)->create();
     }
 }

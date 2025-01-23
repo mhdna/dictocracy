@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration {
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -24,7 +24,7 @@ return new class() extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('user_word', function (Blueprint $table) {
+        Schema::create('user_term', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Term::class);
             $table->foreignIdFor(User::class);
@@ -53,7 +53,7 @@ return new class() extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('users');
-        Schema::dropIfExists('user_word');
+        Schema::dropIfExists('user_term');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

@@ -279,7 +279,7 @@
         "singular",
         "strings",
         "uppercase",
-        "words"
+        "terms"
       ],
       "support": {
         "issues": "https://github.com/doctrine/inflector/issues",

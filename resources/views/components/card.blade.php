@@ -3,13 +3,13 @@
 @props(['definition'])
 
 @php
-    $term = $definition->word;
+    $term = $definition->term;
 @endphp
 
 <div class="max-w-[639px] flex flex-col mb-5 bg-yellow-800 rounded-full px-12 py-4 dark:bg-blue-400">
     <!-- max-h-[667px] -->
     <div>
-        <h2>{{ $term->word }}</h2>
+        <h2>{{ $term->term }}</h2>
         <div>Onzul lee creative</div>
         {{-- Only show dialects for Arabic --}}
         @if ($term->language->name === 'ar')
