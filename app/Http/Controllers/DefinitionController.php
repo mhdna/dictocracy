@@ -43,7 +43,7 @@ class DefinitionController extends Controller
     {
         $definitions = Definition::whereHas('term', function ($query) use ($term) {
             $query->where('term', $term);
-        })->withOnly('term')->get();
+        })->without('term')->get();
 
         return view('definitions.term_page', [
             'term' => $term,
