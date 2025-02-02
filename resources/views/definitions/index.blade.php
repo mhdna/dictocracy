@@ -4,9 +4,9 @@
         @if ($terms)
             <div>{{ count($terms) }} Terms</div>
             @foreach ($terms as $term)
-                <a href="/term/{{ $term->term }}">
-                    <x-term-card :term="$term->term" />
-                </a>
+                {{-- <a href="/term/{{ $term->term }}"> --}}
+                <x-term-card :term="$term->term" />
+                {{-- </a> --}}
             @endforeach
         @else
             <p>No terms are defined</p>

@@ -26,6 +26,18 @@ class DatabaseSeeder extends Seeder
         //     'logo' => fake()->imageUrl(),
         // ]);
         // $user->roles()->attach(1);
+        //
+        // Create an admin
+        $user = User::create([
+            'name' => 'Mahdi N.',
+            'email' => 'me@mail.com',
+            'password' => bcrypt('password'),
+            // 'logo' => fake()->imageUrl(),
+        ]);
+        $role = Role::create(['name' => 'Admin']);
+        $permissions = Permission::pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
+        $user->assignRole([$role->id]);
 
         User::factory(5)->create();
         Language::factory(3)->create();

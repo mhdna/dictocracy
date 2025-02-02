@@ -25,9 +25,16 @@ class DefinitionController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('permission:definition-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:definition-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:definition-delete', ['only' => ['destroy']]);
+        $this->middleware(function ($request, $next) {
+            if (auth()->user()->hasRole('admin')) {
+                return $next($request);
+            }
+
+            $this->middleware('permission:definition-edit', ['only' => ['edit', 'update']]);
+            $this->middleware('permission:definition-delete', ['only' => ['destroy']]);
+
+            return $next($request);
+        });
     }
 
 
@@ -72,6 +79,16 @@ class DefinitionController extends Controller
 
         $term = Term::firstOrCreate(['term' => $request->term]);
 
+        $existingDefinition = Definition::where('user_id', auth()->id())
+            ->where('term_id', $term->id)
+            ->first();
+
+        if ($existingDefinition) {
+            return redirect()->route('definitions.edit', $existingDefinition->id)
+                ->with('info', 'You have already defined this term. Edit your definition instead.');
+        }
+
+
         Definition::create([
             'user_id' => auth()->id(),
             'term_id' => $term->id,
@@ -105,8 +122,7 @@ class DefinitionController extends Controller
     public function update(Request $request, definition $definition): RedirectResponse
     {
         request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'definition' => 'required',
         ]);
 
         $definition->update($request->all());
@@ -121,12 +137,20 @@ class DefinitionController extends Controller
      * @param  \App\definition  $definition
      * @return \Illuminate\Http\Response
      */
-    public function destroy(definition $definition): RedirectResponse
+    public function destroy(Term $term): RedirectResponse
     {
+        $definition = Definition::where('user_id', auth()->id())
+            ->where('term_id', $term->id)
+            ->first();
+
+        if (!$definition) {
+            return redirect()->route('definitions.index')->with('error', 'You have no definition for this term.');
+        }
+
         $definition->delete();
 
         return redirect()->route('definitions.index')
-            ->with('success', 'definition deleted successfully');
+            ->with('success', 'Your definition was deleted successfully.');
     }
 
     public function term_id(Request $request)
