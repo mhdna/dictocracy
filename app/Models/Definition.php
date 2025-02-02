@@ -15,7 +15,8 @@ class Definition extends Model
     /** @use HasFactory<\Database\Factories\DefinitionFactory> */
     use HasFactory;
     protected $fillable = [
-        'term',
+        'user_id',
+        'term_id',
         'definition',
         'example'
     ];

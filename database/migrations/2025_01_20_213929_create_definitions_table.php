@@ -17,12 +17,12 @@ return new class() extends Migration {
         Schema::create('definitions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Term::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'user_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Term::class, 'term_id')->constrained()->cascadeOnDelete();
             $table->string('definition');
             $table->string('example');
-            $table->integer('upvotes');
-            $table->integer('downvotes');
+            $table->integer('upvotes')->default(0);
+            $table->integer('downvotes')->default(0);
         });
 
         Schema::create('definition_dialect', function (Blueprint $table) {

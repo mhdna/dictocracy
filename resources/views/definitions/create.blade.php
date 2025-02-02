@@ -29,7 +29,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Term:</strong>
-                    <input type="text" name="Term" class="form-control" placeholder="Term">
+                    <input type="text" name="term" class="form-control" placeholder="Term">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -41,7 +41,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Example:</strong>
-                    <textarea class="form-control" style="height:150px" name="Example" placeholder="Example"></textarea>
+                    <textarea class="form-control" style="height:150px" name="example" placeholder="Example"></textarea>
                 </div>
             </div>
             {{-- <div class="col-xs-12 col-sm-12 col-md-12"> --}}

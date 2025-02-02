@@ -7,7 +7,7 @@
             </div>
         @endif
         <div>
-            <div>47 new definitions this week</div>
+            <div>{{ $last_week_definitions_count }} new definitions this week</div>
             <div>Order: </div>
             @if ($definitions)
                 @foreach ($definitions as $definition)

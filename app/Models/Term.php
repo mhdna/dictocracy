@@ -14,6 +14,9 @@ class Term extends Model
     use HasFactory;
 
     public $with = ['language'];
+    protected $fillable = [
+        'term',
+    ];
     /**
      * @return BelongsToMany<User,Term>
      */

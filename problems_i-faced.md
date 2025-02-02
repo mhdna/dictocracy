@@ -9,12 +9,9 @@ Urbandictionary on steroids
 - [x] Searching functionality
 
 - [x] Now till 8:00 Roles and Admin
-- [x] create remove user and posts till 11:00
-- [ ] Delete and edit your own posts
-- [ ] A user can only enter one definition or edit
-- [ ] Definitions rewrite and organize
 - [ ] approve definitions
-- [ ] up/down votes and sort by them
+- [ ] create remove user and posts till 11:00
+- [ ] 7:30 till 8:00 Sort by upvotes
 - [ ] 7:00 till 7:30 Subdomains <https://laraveldaily.com/post/add-first-admin-user-live-laravel>
       OR <https://ohdoylerules.com/web/build-a-multi-lingual-laravel-site-with-subdomains/>
 - [ ] Create definition term page

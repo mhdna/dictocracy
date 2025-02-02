@@ -8,8 +8,10 @@ use App\Http\Requests\UpdateTermRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Dialect;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Term;
 use App\Models\Definition;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -35,10 +37,14 @@ class DefinitionController extends Controller
         $definitions = Definition::paginate(10);
         $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(15)->get() : collect();
 
+        $lastWeek = Carbon::now()->subDays(7);
+        $lastWeekDefinitionsCount = Definition::where('created_at', '>=', $lastWeek)->count();
+
         return view('home', [
             'definitions' => $definitions,
             'dialects' => Dialect::all(),
-            'user_definitions' => $user_definitons
+            'user_definitions' => $user_definitons,
+            'last_week_definitions_count' => $lastWeekDefinitionsCount
         ]);
     }
 
@@ -64,7 +70,15 @@ class DefinitionController extends Controller
             'definition' => 'required',
         ]);
 
-        Definition::create($request->all());
+        $term = Term::firstOrCreate(['term' => $request->term]);
+
+        Definition::create([
+            'user_id' => auth()->id(),
+            'term_id' => $term->id,
+            'definition' => $request->definition,
+            'example' => $request->example ?? ''
+        ]);
+
 
         return redirect()->route('definitions.index')
             ->with('success', 'definition created successfully.');
