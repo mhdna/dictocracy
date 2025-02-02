@@ -23,7 +23,7 @@
                 <a href="#">Browse</a>
                 <a href="#">Dialects</a>
                 @auth
-                    <a href="#">Add term</a>
+                    <a href="{{ route('definitions.create') }}">Add term</a>
                 @endauth
             </div>
             <div class="flex">

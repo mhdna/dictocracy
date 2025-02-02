@@ -19,7 +19,6 @@ class DialectFactory extends Factory
         return [
             'language_id' => 1,
             'name' => fake()->name(),
-            'logo' => fake()->imageUrl()
         ];
     }
 }

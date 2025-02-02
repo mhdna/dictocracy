@@ -17,8 +17,8 @@ class DefinitionFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->numberBetween(1, 10),
-            'term_id' => fake()->numberBetween(1, 100),
+            'user_id' => fake()->numberBetween(1, 5),
+            'term_id' => fake()->numberBetween(1, 50),
             'definition' => fake()->paragraph(2),
             'example' => fake()->paragraph(1),
             'upvotes' => fake()->numberBetween(2, 1000),

@@ -27,7 +27,7 @@ class RegisteredUserController extends Controller
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed', Password::min(6)],
-            'logo' => ['required', File::types(['png', 'jpg', 'webp'])]
+            // 'logo' => ['required', File::types(['png', 'jpg', 'webp'])]
         ]);
 
         $logoPath = $request->logo->store('logos');

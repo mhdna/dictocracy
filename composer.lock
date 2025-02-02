@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "0ad1f473193b3feb98972000beec0da4",
+  "content-hash": "20e8245c77676b6e1c5b81f409e36eef",
   "packages": [
     {
       "name": "brick/math",
@@ -278,8 +278,8 @@
         "plural",
         "singular",
         "strings",
-        "uppercase",
-        "terms"
+        "terms",
+        "uppercase"
       ],
       "support": {
         "issues": "https://github.com/doctrine/inflector/issues",
@@ -1453,6 +1453,69 @@
         "source": "https://github.com/laravel/tinker/tree/v2.10.0"
       },
       "time": "2024-09-23T13:32:56+00:00"
+    },
+    {
+      "name": "laravel/ui",
+      "version": "v4.6.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/laravel/ui.git",
+        "reference": "7d6ffa38d79f19c9b3e70a751a9af845e8f41d88"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/laravel/ui/zipball/7d6ffa38d79f19c9b3e70a751a9af845e8f41d88",
+        "reference": "7d6ffa38d79f19c9b3e70a751a9af845e8f41d88",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/console": "^9.21|^10.0|^11.0|^12.0",
+        "illuminate/filesystem": "^9.21|^10.0|^11.0|^12.0",
+        "illuminate/support": "^9.21|^10.0|^11.0|^12.0",
+        "illuminate/validation": "^9.21|^10.0|^11.0|^12.0",
+        "php": "^8.0",
+        "symfony/console": "^6.0|^7.0"
+      },
+      "require-dev": {
+        "orchestra/testbench": "^7.35|^8.15|^9.0|^10.0",
+        "phpunit/phpunit": "^9.3|^10.4|^11.5"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Laravel\\Ui\\UiServiceProvider"
+          ]
+        },
+        "branch-alias": {
+          "dev-master": "4.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Laravel\\Ui\\": "src/",
+          "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "Laravel UI utilities and presets.",
+      "keywords": [
+        "laravel",
+        "ui"
+      ],
+      "support": {
+        "source": "https://github.com/laravel/ui/tree/v4.6.1"
+      },
+      "time": "2025-01-28T15:15:29+00:00"
     },
     {
       "name": "league/commonmark",
@@ -3297,6 +3360,89 @@
         }
       ],
       "time": "2024-04-27T21:32:50+00:00"
+    },
+    {
+      "name": "spatie/laravel-permission",
+      "version": "6.12.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/spatie/laravel-permission.git",
+        "reference": "420ea2a49db480302813d444834baaf7c8674782"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/420ea2a49db480302813d444834baaf7c8674782",
+        "reference": "420ea2a49db480302813d444834baaf7c8674782",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/auth": "^8.12|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/container": "^8.12|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/contracts": "^8.12|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/database": "^8.12|^9.0|^10.0|^11.0|^12.0",
+        "php": "^8.0"
+      },
+      "require-dev": {
+        "laravel/passport": "^11.0|^12.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^9.4|^10.1|^11.5"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Spatie\\Permission\\PermissionServiceProvider"
+          ]
+        },
+        "branch-alias": {
+          "dev-main": "6.x-dev",
+          "dev-master": "6.x-dev"
+        }
+      },
+      "autoload": {
+        "files": [
+          "src/helpers.php"
+        ],
+        "psr-4": {
+          "Spatie\\Permission\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Freek Van der Herten",
+          "email": "freek@spatie.be",
+          "homepage": "https://spatie.be",
+          "role": "Developer"
+        }
+      ],
+      "description": "Permission handling for Laravel 8.0 and up",
+      "homepage": "https://github.com/spatie/laravel-permission",
+      "keywords": [
+        "acl",
+        "laravel",
+        "permission",
+        "permissions",
+        "rbac",
+        "roles",
+        "security",
+        "spatie"
+      ],
+      "support": {
+        "issues": "https://github.com/spatie/laravel-permission/issues",
+        "source": "https://github.com/spatie/laravel-permission/tree/6.12.0"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/spatie",
+          "type": "github"
+        }
+      ],
+      "time": "2025-01-31T01:07:40+00:00"
     },
     {
       "name": "symfony/clock",
@@ -8826,199 +8972,199 @@
           "url": "https://github.com/staabm",
           "type": "github"
         }
-            ],
-            "time": "2024-10-20T05:08:20+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v7.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "099581e99f557e9f16b43c5916c26380b54abb22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/099581e99f557e9f16b43c5916c26380b54abb22",
-                "reference": "099581e99f557e9f16b43c5916c26380b54abb22",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/deprecation-contracts": "^2.5|^3.0",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<6.4"
-            },
-            "require-dev": {
-                "symfony/console": "^6.4|^7.0"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-10-23T06:56:12+00:00"
-        },
-        {
-            "name": "ta-tikoma/phpunit-architecture-test",
-            "version": "0.8.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ta-tikoma/phpunit-architecture-test.git",
-                "reference": "89f0dea1cb0f0d5744d3ec1764a286af5e006636"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ta-tikoma/phpunit-architecture-test/zipball/89f0dea1cb0f0d5744d3ec1764a286af5e006636",
-                "reference": "89f0dea1cb0f0d5744d3ec1764a286af5e006636",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^4.18.0 || ^5.0.0",
-                "php": "^8.1.0",
-                "phpdocumentor/reflection-docblock": "^5.3.0",
-                "phpunit/phpunit": "^10.5.5  || ^11.0.0",
-                "symfony/finder": "^6.4.0 || ^7.0.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.13.7",
-                "phpstan/phpstan": "^1.10.52"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PHPUnit\\Architecture\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ni Shi",
-                    "email": "futik0ma011@gmail.com"
-                },
-                {
-                    "name": "Nuno Maduro",
-                    "email": "enunomaduro@gmail.com"
-                }
-            ],
-            "description": "Methods for testing application architecture",
-            "keywords": [
-                "architecture",
-                "phpunit",
-                "stucture",
-                "test",
-                "testing"
-            ],
-            "support": {
-                "issues": "https://github.com/ta-tikoma/phpunit-architecture-test/issues",
-                "source": "https://github.com/ta-tikoma/phpunit-architecture-test/tree/0.8.4"
-            },
-            "time": "2024-01-05T14:10:56+00:00"
-        },
-        {
-            "name": "theseer/tokenizer",
-            "version": "1.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2",
-                "reference": "737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
-                "php": "^7.2 || ^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "support": {
-                "issues": "https://github.com/theseer/tokenizer/issues",
-                "source": "https://github.com/theseer/tokenizer/tree/1.2.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/theseer",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-03-03T12:36:25+00:00"
-        }
-    ],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
-    "prefer-stable": true,
-    "prefer-lowest": false,
-    "platform": {
-        "php": "^8.2"
+      ],
+      "time": "2024-10-20T05:08:20+00:00"
     },
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    {
+      "name": "symfony/yaml",
+      "version": "v7.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/yaml.git",
+        "reference": "099581e99f557e9f16b43c5916c26380b54abb22"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/yaml/zipball/099581e99f557e9f16b43c5916c26380b54abb22",
+        "reference": "099581e99f557e9f16b43c5916c26380b54abb22",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2",
+        "symfony/deprecation-contracts": "^2.5|^3.0",
+        "symfony/polyfill-ctype": "^1.8"
+      },
+      "conflict": {
+        "symfony/console": "<6.4"
+      },
+      "require-dev": {
+        "symfony/console": "^6.4|^7.0"
+      },
+      "bin": [
+        "Resources/bin/yaml-lint"
+      ],
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\Yaml\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Loads and dumps YAML files",
+      "homepage": "https://symfony.com",
+      "support": {
+        "source": "https://github.com/symfony/yaml/tree/v7.2.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2024-10-23T06:56:12+00:00"
+    },
+    {
+      "name": "ta-tikoma/phpunit-architecture-test",
+      "version": "0.8.4",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/ta-tikoma/phpunit-architecture-test.git",
+        "reference": "89f0dea1cb0f0d5744d3ec1764a286af5e006636"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/ta-tikoma/phpunit-architecture-test/zipball/89f0dea1cb0f0d5744d3ec1764a286af5e006636",
+        "reference": "89f0dea1cb0f0d5744d3ec1764a286af5e006636",
+        "shasum": ""
+      },
+      "require": {
+        "nikic/php-parser": "^4.18.0 || ^5.0.0",
+        "php": "^8.1.0",
+        "phpdocumentor/reflection-docblock": "^5.3.0",
+        "phpunit/phpunit": "^10.5.5  || ^11.0.0",
+        "symfony/finder": "^6.4.0 || ^7.0.0"
+      },
+      "require-dev": {
+        "laravel/pint": "^1.13.7",
+        "phpstan/phpstan": "^1.10.52"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "PHPUnit\\Architecture\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Ni Shi",
+          "email": "futik0ma011@gmail.com"
+        },
+        {
+          "name": "Nuno Maduro",
+          "email": "enunomaduro@gmail.com"
+        }
+      ],
+      "description": "Methods for testing application architecture",
+      "keywords": [
+        "architecture",
+        "phpunit",
+        "stucture",
+        "test",
+        "testing"
+      ],
+      "support": {
+        "issues": "https://github.com/ta-tikoma/phpunit-architecture-test/issues",
+        "source": "https://github.com/ta-tikoma/phpunit-architecture-test/tree/0.8.4"
+      },
+      "time": "2024-01-05T14:10:56+00:00"
+    },
+    {
+      "name": "theseer/tokenizer",
+      "version": "1.2.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/theseer/tokenizer.git",
+        "reference": "737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/theseer/tokenizer/zipball/737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2",
+        "reference": "737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2",
+        "shasum": ""
+      },
+      "require": {
+        "ext-dom": "*",
+        "ext-tokenizer": "*",
+        "ext-xmlwriter": "*",
+        "php": "^7.2 || ^8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "classmap": [
+          "src/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
+        {
+          "name": "Arne Blankerts",
+          "email": "arne@blankerts.de",
+          "role": "Developer"
+        }
+      ],
+      "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+      "support": {
+        "issues": "https://github.com/theseer/tokenizer/issues",
+        "source": "https://github.com/theseer/tokenizer/tree/1.2.3"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/theseer",
+          "type": "github"
+        }
+      ],
+      "time": "2024-03-03T12:36:25+00:00"
+    }
+  ],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": {},
+  "prefer-stable": true,
+  "prefer-lowest": false,
+  "platform": {
+    "php": "^8.2"
+  },
+  "platform-dev": {},
+  "plugin-api-version": "2.6.0"
 }

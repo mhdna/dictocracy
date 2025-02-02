@@ -6,11 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
+use App\Models\Term;
+use App\Models\Dialect;
 
 class Definition extends Model
 {
     /** @use HasFactory<\Database\Factories\DefinitionFactory> */
     use HasFactory;
+    protected $fillable = [
+        'term',
+        'definition',
+        'example'
+    ];
 
     public $with = ['term', 'dialects', 'user'];
 

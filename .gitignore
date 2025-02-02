@@ -1,4 +1,6 @@
 artisan
+/.termdbms
+/.pnpm-lock.yaml
 /.php-cs-fixer.cache
 /.phpunit.cache
 /node_modules

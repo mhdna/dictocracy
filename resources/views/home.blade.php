@@ -1,4 +1,4 @@
-{{-- TODO: Super confusing mix between under_definition and defintions --}}
+{{-- TODO Super confusing mix between under_definition and defintions --}}
 <x-layout>
     <div class="flex justify-between">
         @if ($user_definitions)

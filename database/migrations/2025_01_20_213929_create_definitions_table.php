@@ -17,7 +17,7 @@ return new class() extends Migration {
         Schema::create('definitions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Term::class)->constrained()->cascadeOnDelete();
             $table->string('definition');
             $table->string('example');

@@ -19,20 +19,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'id' => 1,
-            'name' => fake()->name(),
-            'email' => 'me@mail.com',
-            'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
-            'logo' => fake()->imageUrl(),
-            'is_admin' => false,
-        ]);
+        // $user = User::create([
+        //     'name' => 'Admin',
+        //     'email' => 'admin@example.org',
+        //     'password' => bcrypt('secret'),
+        //     'logo' => fake()->imageUrl(),
+        // ]);
+        // $user->roles()->attach(1);
 
-        User::factory(100)->create();
+        User::factory(5)->create();
         Language::factory(3)->create();
         Dialect::factory(25)->create();
-        Term::factory(5000)->create();
-        Definition::factory(10000)->create();
+        Term::factory(50)->create();
+        Definition::factory(50)->create();
     }
 }
