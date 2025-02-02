@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DefinitionVoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SearchController;
@@ -25,6 +26,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('definitions', DefinitionController::class);
+
+    Route::post('definition/{definition}/upvote', [DefinitionVoteController::class, 'upvote'])->name('definition.upvote');
+    Route::post('definition/{definition}/downvote', [DefinitionVoteController::class, 'downvote'])->name('definition.downvote');
+    Route::delete('definition/{definition}/unvote', [DefinitionVoteController::class, 'unvote'])->name('definition.unvote');
 
     // Route::get('/define', [DefinitionController::class, 'create']);
     Route::get('/account', [ProfileController::class, 'account'])->name('account');

@@ -1,8 +1,107 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-[data-theme="dark"] {
-    --bg-color: theme("colors.gruvbox.dark");
-    --text-color: theme("colors.gruvbox.light");
+/* Ensures autocomplete dropdown is above other content */
+.typeahead.dropdown-menu {
+    position: absolute !important;
+    z-index: 1000;
+    /* Make sure it's above other elements */
+    top: 100%;
+    /* Position it below the input */
+    left: 0;
+    width: 20%;
+    /* Match input width */
+    max-height: 200px;
+    /* Limit the height for scrolling */
+    overflow-y: auto;
+    /* Allow vertical scrolling if there are many items */
+    background-color: #000;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
 }
+
+/* [data-theme="dark"] { */
+/*     --bg-color: theme("colors.gruvbox.dark"); */
+/*     --text-color: theme("colors.gruvbox.light"); */
+/* } */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.flag-switch {
+    position: relative;
+    outline: 0;
+    appearance: none;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 60px;
+    height: 30px;
+    margin: 5px auto;
+}
+
+.flag-switch:before,
+.flag-switch:after {
+    position: absolute;
+    color: black;
+    top: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.flag-switch input {
+    display: none;
+}
+
+.flag-switch input+label {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    width: 60px;
+}
+
+.flag-switch input+label:before,
+.flag-switch input+label:after {
+    content: "";
+    position: absolute;
+    border-radius: 30px;
+    transition: all 0.25s ease-in-out;
+}
+
+.flag-switch input+label:before {
+    height: 30px;
+    width: 60px;
+    background-color: red;
+}
+
+.flag-switch input+label:after {
+    top: 3px;
+    left: 3px;
+    border: 2px solid #dfdfdf;
+    width: 24px;
+    height: 24px;
+    background: #eb3 url(https://i.imgur.com/Zikd4kP.jpg) -26px center;
+    transform: translate(30px, 0);
+    -webkit-transform: translate(30px, 0);
+}
+
+.flag-switch input:checked+label:after {
+    background: #000233 url(https://i.imgur.com/Zikd4kP.jpg) -2px center;
+    transition: all 0.25s ease-in-out;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.flag-switch input:checked+label:before {
+    background-color: orange;
+}
+
+/*************************/

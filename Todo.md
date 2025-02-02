@@ -11,16 +11,18 @@ Urbandictionary on steroids
 - [x] Now till 8:00 Roles and Admin
 - [x] create remove user and posts till 11:00
 - [ ] Delete and edit your own posts
-- [ ] A user can only enter one definition or edit
-- sort alpha for letter lists. sort upvotes for search. sort recent for homepage.
-- [ ] Definitions rewrite and organize
 - [ ] approve definitions
-- [ ] up/down votes and sort by them
+- [ ] A user can only enter one definition or edit
+- [ ] sort alpha for letter lists. sort upvotes for search. sort recent for homepage.
+- [ ] Definitions rewrite and organize
+- [x] up/down votes
+- [ ] Sort by
 - [ ] 7:00 till 7:30 Subdomains <https://laraveldaily.com/post/add-first-admin-user-live-laravel>
       OR <https://ohdoylerules.com/web/build-a-multi-lingual-laravel-site-with-subdomains/>
 - [ ] Create definition term page
 - [ ] Current author profile page and settings (Forgot password, Change password, Change logo, Change authorname, Change email)
 - [ ] Tags page
+
 - [ ] Graph
 - [ ] Logo after everything
 - [ ] Admin and regular author functionality?

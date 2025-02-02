@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Definition as DefinitionDefinition;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -36,5 +37,10 @@ class Definition extends Model
     public function dialects(): BelongsToMany
     {
         return $this->belongsToMany(Dialect::class);
+    }
+
+    public function votes(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_vote')->withPivot('vote')->withTimestamps();
     }
 }

@@ -1,6 +1,6 @@
-{{-- TODO: Super confusing mix between under_definition and defintions --}}
+@extends('layouts.app')
 
-<x-layout>
+@section('content')
     <div class="flex flex-col justify-between">
         <h2 class="font-extrabold text-5xl">Search term: {{ $query }}</h2>
         <div>{{ count($terms) }} Terms found</div>
@@ -13,4 +13,4 @@
         @endif
     </div>
     </div>
-</x-layout>
+@endsection

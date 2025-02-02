@@ -18,7 +18,7 @@ class TermFactory extends Factory
     {
         return [
             'language_id' => 3,
-            'term' => fake()->unique()->text(),
+            'term' => fake()->unique()->word(),
         ];
     }
 }

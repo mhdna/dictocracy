@@ -11,6 +11,8 @@ use App\Models\Term;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -38,6 +40,13 @@ class DatabaseSeeder extends Seeder
         $permissions = Permission::pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
         $user->assignRole([$role->id]);
+
+        User::create([
+            'name' => 'Test',
+            'email' => 'test@mail.com',
+            'password' => bcrypt('password'),
+            // 'logo' => fake()->imageUrl(),
+        ]);
 
         User::factory(5)->create();
         Language::factory(3)->create();

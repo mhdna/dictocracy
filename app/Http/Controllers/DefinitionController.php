@@ -26,9 +26,9 @@ class DefinitionController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (auth()->user()->hasRole('admin')) {
-                return $next($request);
-            }
+            // if (auth()->user()->hasRole('admin')) {
+            //     return $next($request);
+            // }
 
             $this->middleware('permission:definition-edit', ['only' => ['edit', 'update']]);
             $this->middleware('permission:definition-delete', ['only' => ['destroy']]);
@@ -41,7 +41,7 @@ class DefinitionController extends Controller
     // TODO this must be something different I think (same as home page for now)
     public function index()
     {
-        $definitions = Definition::paginate(10);
+        $definitions = Definition::latest()->paginate(16);
         $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(15)->get() : collect();
 
         $lastWeek = Carbon::now()->subDays(7);
@@ -84,8 +84,7 @@ class DefinitionController extends Controller
             ->first();
 
         if ($existingDefinition) {
-            return redirect()->route('definitions.edit', $existingDefinition->id)
-                ->with('info', 'You have already defined this term. Edit your definition instead.');
+            return back()->with('error', 'You have already defined this term. You might try to edit it instead.');
         }
 
 
@@ -165,6 +164,7 @@ class DefinitionController extends Controller
             'terms' => $terms
         ]);
     }
+
     public function term(string $term)
     {
         $definitions = Definition::whereHas('term', function ($query) use ($term) {

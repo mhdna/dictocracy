@@ -1,4 +1,8 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('title', 'User Account')
+
+@section('content')
     <div class="flex flex-col justify-between mb-36">
         <div>
             {{ $user->name }}
@@ -7,4 +11,4 @@
             {{ $user->email }}
         </div>
     </div>
-</x-layout>
+@endsection

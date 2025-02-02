@@ -1,5 +1,9 @@
 {{-- TODO: Super confusing mix between under_definition and defintions --}}
-<x-layout>
+@extends('layouts.app')
+
+@section('title', 'Term Page')
+
+@section('content')
     <div class="flex flex-col justify-between">
         @if ($definitions)
             <h2 class="font-extrabold text-5xl">{{ $term }}</h2>
@@ -19,4 +23,4 @@
         @endif
     </div>
     </div>
-</x-layout>
+@endsection

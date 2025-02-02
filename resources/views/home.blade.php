@@ -1,24 +1,39 @@
-{{-- TODO Super confusing mix between under_definition and defintions --}}
-<x-layout>
-    <div class="flex justify-between">
+@extends('layouts.app')
+
+@section('title', 'Home Page')
+
+@section('content')
+    <div class="flex space-x-6">
+
+        <div class="w-2/3">
+            <div class="mb-4 text-lg font-semibold">
+                {{ $last_week_definitions_count }} new definitions this week
+            </div>
+            <div class="mb-2 text-sm">
+                Order:
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                @if ($definitions->count())
+                    @foreach ($definitions as $definition)
+                        @include('definitions.definition-card')
+                        {{-- <x-definitions.definition-card :$definition /> --}}
+                    @endforeach
+                @else
+                    <p>No terms are defined</p>
+                @endif
+            </div>
+
+        </div>
         @if ($user_definitions)
-            <div>
-                <x-sidebar :$user_definitions />
+            <div class="w-1/3">
+                @include('partials.sidebar')
             </div>
         @endif
-        <div>
-            <div>{{ $last_week_definitions_count }} new definitions this week</div>
-            <div>Order: </div>
-            @if ($definitions)
-                @foreach ($definitions as $definition)
-                    <x-card :$definition />
-                @endforeach
-            @else
-                <p>No terms are defined</p>
-            @endif
-        </div>
     </div>
-    <div class="mt-4 mb-20">
+
+    <!-- Pagination -->
+    <div class="mt-4 mb-40">
         {{ $definitions->links() }}
     </div>
-</x-layout>
+@endsection
