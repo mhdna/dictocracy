@@ -24,8 +24,8 @@ Route::get('/termStartsWith', [TermController::class, 'termStartsWith'])->name('
 // Route::post('definitions', [DefinitionController::class, 'store'])->name('definitions.store');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/u/{term}', [TermController::class, 'userTerm'])->name('userTerm');
-    Route::get('/u/definitions', [DefinitionController::class, 'userDefinitions'])->name('userDefinitions');
+    Route::get('/userdefinitions', [DefinitionController::class, 'userDefinitions'])->name('userDefinitions');
+    Route::get('/userTerm/{term}', [TermController::class, 'userTerm'])->name('userTerm');
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

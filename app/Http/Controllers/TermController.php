@@ -12,6 +12,7 @@ class TermController extends Controller
 {
     public function term(string $term)
     {
+        // TODO sort by upvotes
         $definitions = Definition::whereHas('term', function ($query) use ($term) {
             $query->where('term', $term);
         })->without('term')->get();

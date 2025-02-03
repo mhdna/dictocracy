@@ -10,17 +10,19 @@
         <div class="bg-yellow-800 rounded-lg px-6 py-4 mb-5 shadow-md">
             <h3 class="text-lg font-semibold text-white mb-2">Your Recent Terms:</h3>
             <div class="space-y-2 text-white">
-                @foreach ($user_definitions as $definition)
-                    <div>
-                        {{-- {{ echo $i++ . '- ' . }}  --}}
-                        {{-- <div class="text-sm">{{ $i++ . '- ' . $definition->term->term }}</div> --}}
+                @if ($user_definitions)
+                    @foreach ($user_definitions as $definition)
+                        <div>
+                            {{-- {{ echo $i++ . '- ' . }}  --}}
+                            {{-- <div class="text-sm">{{ $i++ . '- ' . $definition->term->term }}</div> --}}
 
-                        {{-- TODO popup definition --}}
-                        <a href="{{ route('userTerm', ['term' => $definition->term->term]) }}">
-                            {{ $definition->term->term }}
-                        </a>
-                    </div>
-                @endforeach
+                            {{-- TODO popup definition --}}
+                            <a href="{{ route('userTerm', ['term' => $definition->term->term]) }}">
+                                {{ $definition->term->term }}
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
 

@@ -130,6 +130,16 @@ class DefinitionController extends Controller
             ->with('success', 'definition updated successfully');
     }
 
+    public function userDefinitions()
+    {
+        $user = Auth::user();
+        $definitions = Definition::where('user_id', $user->id)->get();
+
+        return view('definitions.user_definitions', [
+            'definitions' => $definitions
+        ]);
+    }
+
     public function userDefinition(string $term)
     {
         $user = Auth::user();

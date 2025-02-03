@@ -7,7 +7,6 @@
 
     <div class="mb-4 text-lg font-semibold">
         {{ $last_week_definitions_count }} new definitions this week
-        Order:
     </div>
 
     <div class="flex space-x-6">

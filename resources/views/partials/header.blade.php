@@ -1,9 +1,11 @@
 <header class="mx-20 mt-10 flex flex-col">
     <nav class="relative flex items-center justify-between">
         <div class="flex space-x-6">
-            @include('partials.language-switch')
-            @include('partials.theme-switch')
             @auth
+                <a href="{{ route('userDefinitions') }}"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
+                    <i class="fa-solid fa-book"></i> My Definitions
+                </a>
                 <a href="{{ route('definitions.create') }}"
                     class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
                     <i class="fas fa-plus"></i> Add Term
@@ -15,14 +17,13 @@
             href="{{ route('home') }}">Dictocracy</a>
 
         <div class="flex items-center space-x-4">
-            <!-- Theme Toggle -->
+            @include('partials.language-switch')
+            @include('partials.theme-switch')
             @auth
-                <!-- Profile Image -->
                 <a href="{{ route('account') }}">
                     <img src="https://placehold.co/40x40" class="rounded-full" alt="Profile">
                 </a>
 
-                <!-- Logout -->
                 <form method="POST" action="/logout">
                     @csrf
                     @method('DELETE')
