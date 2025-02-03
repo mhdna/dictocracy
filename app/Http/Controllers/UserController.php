@@ -29,7 +29,7 @@ class UserController extends Controller
 
     public function index(Request $request): View
     {
-        $data = User::latest()->paginate(5);
+        $data = User::latest()->get();
 
         return view('users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -58,7 +58,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            // 'roles' => 'required'
+            'roles' => 'required'
         ]);
 
         $input = $request->all();
@@ -111,7 +111,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'same:confirm-password',
-            // 'roles' => 'required'
+            'roles' => 'required'
         ]);
 
         $input = $request->all();

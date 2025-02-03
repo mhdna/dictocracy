@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Dialect;
 use App\Models\Language;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;

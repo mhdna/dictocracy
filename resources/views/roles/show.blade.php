@@ -1,31 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Role</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            </div>
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Show Role</h2>
+            <a href="{{ route('roles.index') }}"
+                class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-blue-600 dark:focus:ring-blue-500">
+                Back
+            </a>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="grid gap-4">
             <div class="form-group">
-                <strong>Name:</strong>
-                {{ $role->name }}
+                <strong class="text-sm text-gray-700 dark:text-gray-300">Name:</strong>
+                <p class="text-gray-800 dark:text-gray-100">{{ $role->name }}</p>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Permissions:</strong>
+                <strong class="text-sm text-gray-700 dark:text-gray-300">Permissions:</strong>
                 @if (!empty($rolePermissions))
-                    @foreach ($rolePermissions as $v)
-                        <label class="label label-success">{{ $v->name }},</label>
-                    @endforeach
+                    <div class="mt-2">
+                        @foreach ($rolePermissions as $v)
+                            <span
+                                class="bg-green-100 text-green-700 py-1 px-2 rounded-lg text-xs dark:bg-green-900 dark:text-green-300">{{ $v->name }}</span>
+                        @endforeach
+                    </div>
+                @else
+                    <p class="text-gray-600 dark:text-gray-400">No permissions assigned</p>
                 @endif
             </div>
         </div>

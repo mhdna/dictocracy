@@ -39,7 +39,6 @@
                 @enderror
             </div>
 
-            <!-- Example -->
             <div class="form-group">
                 <label for="example" class="block text-lg font-medium text-gray-700 dark:text-white">Example</label>
                 <textarea
@@ -47,7 +46,6 @@
                     style="height:150px" name="example" id="example" placeholder="Example">{{ old('example') }}</textarea>
             </div>
 
-            <!-- Submit Button -->
             <div class="text-center">
                 <button type="submit"
                     class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 dark:bg-blue-800 dark:hover:bg-blue-700">

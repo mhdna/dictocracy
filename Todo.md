@@ -10,6 +10,7 @@ Urbandictionary on steroids
 
 - [x] Now till 8:00 Roles and Admin
 - [x] create remove user and posts till 11:00
+      fix messages showing in multiple places
 - [ ] Delete and edit your own posts
 - [x] approve and approved definitions
       has to be finished before 8:00

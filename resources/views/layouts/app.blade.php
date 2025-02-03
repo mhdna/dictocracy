@@ -13,25 +13,36 @@
     {{-- TODO jquery local install --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
 
 </head>
 
-<body class="text-black dark:bg-[#111111] bg-[#faf9f4] dark:text-white">
-    @include('partials.header')
+<body class="text-black dark:bg-[#111111] bg-[#eeeeee] dark:text-white flex flex-col min-h-screen">
+    <div class="flex-1">
+        @include('partials.header')
 
-    <div id="notification" class="fixed bottom-4 right-4 z-50 hidden bg-green-500 text-white p-4 rounded shadow-lg">
-        {{ session('success') }}
+        <div id="notification" class="fixed bottom-4 right-4 z-50 hidden bg-green-500 text-white p-4 rounded shadow-lg">
+            {{ session('success') }}
+        </div>
+
+        <div id="error-notification"
+            class="fixed bottom-4 right-4 z-50 hidden bg-red-500 text-white p-4 rounded shadow-lg">
+            {{ session('error') }}
+        </div>
+
+        <div class="container mx-auto px-10">
+            @yield('content')
+        </div>
     </div>
 
-    <div id="error-notification" class="fixed bottom-4 right-4 z-50 hidden bg-red-500 text-white p-4 rounded shadow-lg">
-        {{ session('error') }}
+    <div>
+        @include('partials.footer')
     </div>
-
-    <div class="min-h-screen container mx-auto p-6">
-        @yield('content')
-    </div>
-
-    @include('partials.footer')
 
 </body>
 

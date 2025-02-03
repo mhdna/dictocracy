@@ -23,7 +23,7 @@ class TermController extends Controller
         ]);
     }
 
-    public function userterm(string $term)
+    public function userTerm(string $term)
     {
         $user = Auth::user();
         $definition = Definition::whereHas('term', function ($query) use ($term) {

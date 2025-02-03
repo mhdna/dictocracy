@@ -1,14 +1,13 @@
 <?php
 
 use App\Models\Definition;
-use App\Models\Dialect;
 use App\Models\User;
 use App\Models\Term;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class() extends Migration {
     /**
      * Run the migrations.
      */
@@ -21,13 +20,7 @@ return new class () extends Migration {
             $table->foreignIdFor(Term::class, 'term_id')->constrained()->cascadeOnDelete();
             $table->string('definition');
             $table->boolean('is_approved')->default(false);
-            $table->string('example');
-        });
-
-        Schema::create('definition_dialect', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(Definition::class);
-            $table->foreignIdFor(Dialect::class);
+            $table->string('example')->default('');
         });
     }
 
@@ -37,6 +30,5 @@ return new class () extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('definitions');
-        Schema::dropIfExists('definition_dialect');
     }
 };

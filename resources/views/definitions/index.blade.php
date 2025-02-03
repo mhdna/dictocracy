@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.navbar')
-
     <div class="flex flex-col justify-between">
         @if ($terms)
             <div>{{ count($terms) }} Terms</div>
@@ -14,7 +12,6 @@
             </div>
         @else
             <p>No terms are defined</p>
-            {{-- TODO "add new term" button --}}
         @endif
     </div>
     </div>

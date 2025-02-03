@@ -5,7 +5,7 @@
         <i class="fab fa-facebook"></i>
     </a>
     <a href="https://twitter.com/intent/tweet?url={{ urlencode(url('/term_id=' . $definition->term->id)) }}"
-        target="_blank" class="text-black hover:text-blue-700 transition">
+        target="_blank" class="text-black dark:text-white hover:text-blue-700 transition">
         <i class="fa-brands fa-x-twitter"></i>
     </a>
 

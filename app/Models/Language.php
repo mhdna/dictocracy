@@ -15,8 +15,4 @@ class Language extends Model
     {
         return $this->hasMany(Term::class);
     }
-    public function dialects(): HasMany
-    {
-        return $this->hasMany(Dialect::class);
-    }
 }

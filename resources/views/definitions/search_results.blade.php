@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.navbar')
     <div class="flex flex-col justify-between">
         <h2 class="font-extrabold text-5xl">Search term: {{ $query }}</h2>
         <div>{{ count($terms) }} Terms found</div>

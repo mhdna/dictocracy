@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Definition;
-use App\Models\Dialect;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -25,13 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $definitions = Definition::paginate(10);
-        $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(15)->get() : collect();
+        $definitions = Definition::where('is_approved', true)->latest()->paginate(16);
+        $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(10)->get() : collect();
+
+        $lastWeek = Carbon::now()->subDays(7);
+        $lastWeekDefinitionsCount = Definition::where('is_approved', true)->where('created_at', '>=', $lastWeek)->count();
 
         return view('home', [
             'definitions' => $definitions,
-            'dialects' => Dialect::all(),
-            'user_definitions' => $user_definitons
+            'user_definitions' => $user_definitons,
+            'last_week_definitions_count' => $lastWeekDefinitionsCount
         ]);
     }
 }

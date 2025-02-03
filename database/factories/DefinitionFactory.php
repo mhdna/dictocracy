@@ -21,8 +21,7 @@ class DefinitionFactory extends Factory
             'term_id' => fake()->numberBetween(1, 50),
             'definition' => fake()->paragraph(2),
             'example' => fake()->paragraph(1),
-            // 'upvotes' => fake()->numberBetween(2, 1000),
-            // 'downvotes' => fake()->numberBetween(2, 1000)
+            'is_approved' => fake()->boolean(50)
         ];
     }
 }

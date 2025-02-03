@@ -25,8 +25,11 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-                sageland: ["Sageland", "sans-serif"],
+                sans: ["Noto Sans", "sans-serif"],
+                serif: ["Noto Serif", "serif"],
+                // sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                title: ["Anton", "sans-serif"],
+                mono: ["Share Tech Mono", "monospace"],
             },
         },
     },

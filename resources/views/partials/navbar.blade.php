@@ -1,10 +1,20 @@
-<div class="flex items-center justify-center">
-    <div class="w-full p-6"> {{-- max-w-4xl  --}}
-        <div class="flex items-center justify-center  mx-20">
-            @include('partials.letters-navigator')
-        </div>
-        <div class="flex items-center justify-center mx-20">
-            @include('partials.searchbox')
-        </div>
-    </div>
+<div class="flex space-x-6">
+    @if (auth()->user()->hasRole('Admin'))
+        <x-button href="/users">
+            <i class="fa-solid fa-users"></i> Users
+        </x-button>
+        <x-button href="/roles">
+            <i class="fa-solid fa-gear"></i> Roles
+        </x-button>
+        <x-button :href="route('approve')">
+            <i class="fa-solid fa-flag"></i> Approvals
+        </x-button>
+    @else
+        <x-button :href="route('userDefinitions')">
+            <i class="fa-solid fa-book"></i> My Definitions
+        </x-button>
+        <x-button :href="route('definitions.create')">
+            <i class="fas fa-plus"></i> Add Term
+        </x-button>
+    @endif
 </div>
