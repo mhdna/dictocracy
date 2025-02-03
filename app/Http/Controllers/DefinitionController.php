@@ -41,11 +41,11 @@ class DefinitionController extends Controller
     // TODO this must be something different I think (same as home page for now)
     public function index()
     {
-        $definitions = Definition::latest()->paginate(16);
+        $definitions = Definition::where('is_approved', true)->latest()->paginate(16);
         $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(15)->get() : collect();
 
         $lastWeek = Carbon::now()->subDays(7);
-        $lastWeekDefinitionsCount = Definition::where('created_at', '>=', $lastWeek)->count();
+        $lastWeekDefinitionsCount = Definition::where('is_approved', true)->where('created_at', '>=', $lastWeek)->count();
 
         return view('home', [
             'definitions' => $definitions,
@@ -130,6 +130,18 @@ class DefinitionController extends Controller
             ->with('success', 'definition updated successfully');
     }
 
+    public function userDefinition(string $term)
+    {
+        $user = Auth::user();
+        $definition = Definition::whereHas('term', function ($query) use ($term) {
+            $query->where('term', $term);
+        })->where('user_id', $user->id)->with('term')->first();
+
+        return view('definitions.user_definition', [
+            'term' => $term,
+            'definition' => $definition
+        ]);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -150,5 +162,22 @@ class DefinitionController extends Controller
 
         return redirect()->route('definitions.index')
             ->with('success', 'Your definition was deleted successfully.');
+    }
+
+    public function approve()
+    {
+        // Fetch only unapproved definitions
+        $definitions = Definition::where('is_approved', false)->get();
+
+        return view('definitions.approve', compact('definitions'));
+    }
+    public function approveDefinition($id)
+    {
+        // Find the definition and update its status
+        $definition = Definition::findOrFail($id);
+        $definition->is_approved = true;
+        $definition->save();
+
+        return redirect()->route('definitions.approve')->with('success', 'Definition approved successfully');
     }
 }

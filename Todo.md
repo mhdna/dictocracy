@@ -11,8 +11,9 @@ Urbandictionary on steroids
 - [x] Now till 8:00 Roles and Admin
 - [x] create remove user and posts till 11:00
 - [ ] Delete and edit your own posts
-- [ ] approve definitions
-- [ ] sort alpha for letter lists. sort upvotes for search. sort recent for homepage.
+- [x] approve and approved definitions
+      has to be finished before 8:00
+- [x] sort alpha for letter lists. sort upvotes for search. sort recent for homepage.
 - [x] A user can only enter one definition or edit
 
 - [ ] Definitions rewrite and organize

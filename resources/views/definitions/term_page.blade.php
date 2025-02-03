@@ -13,8 +13,8 @@
             @foreach ($definitions as $definition)
                 <div class="bg-white shadow-md rounded-lg p-4 space-y-3">
                     <div class="flex items-center justify-between">
-                        <a class="text-yellow-600 font-semibold" href="/profile/{{ $definition->user->id }}">
-                            Author: {{ $definition->user->name }}
+                        <a class="text-yellow-600 font-semibold" />
+                        Author: {{ $definition->user->name }}
                         </a>
                     </div>
 

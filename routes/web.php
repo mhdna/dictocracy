@@ -17,16 +17,22 @@ Route::get('/', [DefinitionController::class, 'index'])->name('home');
 
 Route::get('/autocomplete', [SearchController::class, 'autoComplete'])->name('autocomplete');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-Route::get('/term/{term}', [TermController::class, 'term']);
-Route::get('/termStartsWith', [TermController::class, 'termStartsWith']);
+Route::get('/term/{term}', [TermController::class, 'term'])->name('term');
+Route::get('/termStartsWith', [TermController::class, 'termStartsWith'])->name('termStartsWith');
 
-Route::get('/user/{user_id}', [ProfileController::class, 'profile']);
+// Route::get('/u/{user_id}', [ProfileController::class, 'profile'])->name('userprofile');
 // Route::post('definitions', [DefinitionController::class, 'store'])->name('definitions.store');
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/u/{term}', [TermController::class, 'userTerm'])->name('userTerm');
+    Route::get('/u/definitions', [DefinitionController::class, 'userDefinitions'])->name('userDefinitions');
+
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('definitions', DefinitionController::class);
+
+    Route::get('/approve', [DefinitionController::class, 'approve'])->name('definitions.approve');
+    Route::post('/approve/{id}', [DefinitionController::class, 'approveDefinition'])->name('definitions.approve.update');
 
     Route::post('definition/{definition}/upvote', [DefinitionVoteController::class, 'upvote'])->name('definition.upvote');
     Route::post('definition/{definition}/downvote', [DefinitionVoteController::class, 'downvote'])->name('definition.downvote');
@@ -36,8 +42,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/account', [ProfileController::class, 'account'])->name('account');
 });
 
+
+
 Route::middleware('guest')->group(function () {
-    Route::get('/register', [RegisteredUserController::class,  'create']);
+    Route::get('/register', [RegisteredUserController::class,  'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class,  'store']);
 
     Route::get('/login', [SessionController::class,  'create'])->name('login');
@@ -47,6 +55,7 @@ Route::middleware('guest')->group(function () {
 Route::get('/logout', function () {
     return redirect('/'); // TODO 404 page
 })->middleware('auth');
+
 Route::delete('/logout', [SessionController::class,  'destroy'])->middleware('auth');
 
 Auth::routes();

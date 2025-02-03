@@ -20,6 +20,7 @@ return new class () extends Migration {
             $table->foreignIdFor(User::class, 'user_id')->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Term::class, 'term_id')->constrained()->cascadeOnDelete();
             $table->string('definition');
+            $table->boolean('is_approved')->default(false);
             $table->string('example');
         });
 

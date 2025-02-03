@@ -12,7 +12,8 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-        $terms = Term::where('term', 'Like', '%' . $query . '%')->get(); // mhd: pagination won't work easily on those
+        $terms = Term::where('term', 'Like', '%' . $query . '%')->orderBy('term', 'asc')
+            ->get(); // mhd: pagination won't work easily on those
 
         return view('definitions.search_results', [
             'query' => $query,

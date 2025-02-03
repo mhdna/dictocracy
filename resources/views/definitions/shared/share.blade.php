@@ -13,7 +13,7 @@
         class="text-green-800 hover:text-green-700 transition">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <a href="https://www.reddit.com/submit?url={{ urlencode(url('/term_id=' . $definition->term->id)) }}&title={{ urlencode($term->term) }}"
+    <a href="https://www.reddit.com/submit?url={{ urlencode(url('/term_id=' . $definition->term->id)) }}&title={{ urlencode($definition->term->term) }}"
         target="_blank" class="text-orange-600 hover:text-orange-800 transition">
         <i class="fab fa-reddit"></i>
     </a>
