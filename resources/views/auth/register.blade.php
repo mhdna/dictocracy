@@ -3,8 +3,8 @@
 @section('title', 'Register')
 
 @section('content')
-    <div class="min-h-screen flex items-center justify-center px-4">
-        <div class="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+    <div class="flex items-center justify-center px-4">
+        <div class="mb-10 w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-6">Register</h2>
 
             @if (session('error'))

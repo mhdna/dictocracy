@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Definition;
-use App\Models\Language;
 use App\Models\User;
 use App\Models\Term;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -23,8 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionTableSeeder::class);
         $this->call(UserTableSeeder::class);
 
-        Language::factory(3)->create();
-        Term::factory(100)->create();
-        Definition::factory(500)->create();
+        // Term::factory(50)->create();
+        // Definition::factory(50)->create();
     }
 }

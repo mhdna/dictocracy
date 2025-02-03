@@ -17,7 +17,6 @@ class TermFactory extends Factory
     public function definition(): array
     {
         return [
-            'language_id' => 3,
             'term' => fake()->unique()->word(),
         ];
     }

@@ -13,7 +13,6 @@ class Term extends Model
     /** @use HasFactory<\Database\Factories\TermFactory> */
     use HasFactory;
 
-    public $with = ['language'];
     protected $fillable = [
         'term',
     ];
@@ -30,12 +29,5 @@ class Term extends Model
     public function definitions(): HasMany
     {
         return $this->hasMany(Definition::class);
-    }
-    /**
-     * @return BelongsTo<Language,Term>
-     */
-    public function language(): BelongsTo
-    {
-        return $this->belongsTo(Language::class);
     }
 }

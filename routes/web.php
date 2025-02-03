@@ -14,16 +14,12 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
-// Route::redirect('/', '/home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/autocomplete', [SearchController::class, 'autoComplete'])->name('autocomplete');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/term/{term}', [TermController::class, 'term'])->name('term');
 Route::get('/termStartsWith', [TermController::class, 'termStartsWith'])->name('termStartsWith');
-
-// Route::get('/u/{user_id}', [ProfileController::class, 'profile'])->name('userprofile');
-// Route::post('definitions', [DefinitionController::class, 'store'])->name('definitions.store');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/userdefinitions', [DefinitionController::class, 'userDefinitions'])->name('userDefinitions');
@@ -40,7 +36,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('definition/{definition}/downvote', [DefinitionVoteController::class, 'downvote'])->name('definition.downvote');
     Route::delete('definition/{definition}/unvote', [DefinitionVoteController::class, 'unvote'])->name('definition.unvote');
 
-    // Route::get('/define', [DefinitionController::class, 'create']);
     Route::get('/account', [ProfileController::class, 'account'])->name('account');
 });
 
@@ -53,10 +48,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [SessionController::class,  'create'])->name('login');
     Route::post('/login', [SessionController::class,  'store']);
 });
-
-Route::get('/logout', function () {
-    return redirect('/'); // TODO 404 page
-})->middleware('auth');
 
 Route::delete('/logout', [SessionController::class,  'destroy'])->middleware('auth');
 

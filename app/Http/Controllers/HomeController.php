@@ -4,7 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Definition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\View\View;
+use App\Http\Requests\StoreTermRequest;
+use App\Http\Requests\UpdateTermRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use App\Models\Term;
+use App\Models\Definition;
+use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -26,14 +38,12 @@ class HomeController extends Controller
     public function index()
     {
         $definitions = Definition::where('is_approved', true)->latest()->paginate(16);
-        $user_definitons = auth()->check() ? auth()->user()->definitions()->limit(10)->get() : collect();
 
         $lastWeek = Carbon::now()->subDays(7);
         $lastWeekDefinitionsCount = Definition::where('is_approved', true)->where('created_at', '>=', $lastWeek)->count();
 
         return view('home', [
             'definitions' => $definitions,
-            'user_definitions' => $user_definitons,
             'last_week_definitions_count' => $lastWeekDefinitionsCount
         ]);
     }

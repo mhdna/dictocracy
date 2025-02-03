@@ -50,8 +50,8 @@
         <div class="w-full">
             @include('partials.searchbox')
         </div>
-        <div class="max-w-[1000px] mb-32 lg:mx-56">
-            @include('partials.sidebar')
-        </div>
+        {{-- <div class="max-w-[1000px] mb-32 lg:mx-56"> --}}
+        {{--     @include('partials.recent-words') --}}
+        {{-- </div> --}}
     </div>
 </header>
