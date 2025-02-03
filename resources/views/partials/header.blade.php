@@ -33,11 +33,4 @@
             <a href="/login" class="text-blue-500 hover:text-blue-700">Log In</a> @endguest
         </div>
     </nav>
-
-    <div class="flex items-center mt-8 mx-20">
-        @include('partials.letters-navigator')
-    </div>
-
-    @include('partials.searchbox')
-
 </header>

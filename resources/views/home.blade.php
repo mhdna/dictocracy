@@ -3,16 +3,16 @@
 @section('title', 'Home Page')
 
 @section('content')
+    @include('partials.navbar')
+
+    <div class="mb-4 text-lg font-semibold">
+        {{ $last_week_definitions_count }} new definitions this week
+        Order:
+    </div>
+
     <div class="flex space-x-6">
 
         <div class="w-2/3">
-            <div class="mb-4 text-lg font-semibold">
-                {{ $last_week_definitions_count }} new definitions this week
-            </div>
-            <div class="mb-2 text-sm">
-                Order:
-            </div>
-
             <div class="grid grid-cols-2 gap-4">
                 @if ($definitions->count())
                     @foreach ($definitions as $definition)

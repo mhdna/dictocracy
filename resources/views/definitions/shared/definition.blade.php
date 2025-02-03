@@ -1,4 +1,4 @@
-<h2 class="text-2xl font-semibold mb-2">{{ $term->term }}</h2>
+<x-term-card :term="$term->term" />
 <p class="text-sm text-gray-300 mb-4">Onzul Lee Creative</p>
 
 {{-- Only show dialects for Arabic --}}

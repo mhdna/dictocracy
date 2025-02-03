@@ -80,7 +80,7 @@
         // After 5 seconds, hide the notification
         setTimeout(() => {
             notification.classList.add('hidden');
-        }, 5000);
+        }, 2000);
     }
 </script>
 

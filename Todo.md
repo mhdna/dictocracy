@@ -12,8 +12,9 @@ Urbandictionary on steroids
 - [x] create remove user and posts till 11:00
 - [ ] Delete and edit your own posts
 - [ ] approve definitions
-- [ ] A user can only enter one definition or edit
 - [ ] sort alpha for letter lists. sort upvotes for search. sort recent for homepage.
+- [x] A user can only enter one definition or edit
+
 - [ ] Definitions rewrite and organize
 - [x] up/down votes
 - [ ] Sort by

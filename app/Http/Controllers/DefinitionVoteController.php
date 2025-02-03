@@ -28,7 +28,7 @@ class DefinitionVoteController extends Controller
             $voter->votes()->attach($definition->id, ['vote' => 1]);
         }
 
-        return redirect()->route('home')->with('success', 'Vote updated successfully.');
+        return back()->with('success', 'Vote updated successfully.');
     }
 
     public function downvote(Definition $definition)
@@ -51,6 +51,6 @@ class DefinitionVoteController extends Controller
             $voter->votes()->attach($definition->id, ['vote' => -1]);
         }
 
-        return redirect()->route('home')->with('success', 'Vote updated successfully.');
+        return back()->with('success', 'Vote updated successfully.');
     }
 }

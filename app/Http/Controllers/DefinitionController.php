@@ -151,29 +151,4 @@ class DefinitionController extends Controller
         return redirect()->route('definitions.index')
             ->with('success', 'Your definition was deleted successfully.');
     }
-
-    public function term_id(Request $request)
-    {
-        $letter = $request->query('letter', '');
-
-        $terms = $letter
-            ? Term::where('term', 'like', $letter . '%')->get()
-            : Term::all();
-
-        return view('definitions.index', [
-            'terms' => $terms
-        ]);
-    }
-
-    public function term(string $term)
-    {
-        $definitions = Definition::whereHas('term', function ($query) use ($term) {
-            $query->where('term', $term);
-        })->without('term')->get();
-
-        return view('definitions.term_page', [
-            'term' => $term,
-            'definitions' => $definitions
-        ]);
-    }
 }

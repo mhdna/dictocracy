@@ -21,34 +21,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $user = User::create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@example.org',
-        //     'password' => bcrypt('secret'),
-        //     'logo' => fake()->imageUrl(),
-        // ]);
-        // $user->roles()->attach(1);
-        //
-        // Create an admin
-        $user = User::create([
-            'name' => 'Mahdi N.',
-            'email' => 'me@mail.com',
-            'password' => bcrypt('password'),
-            // 'logo' => fake()->imageUrl(),
-        ]);
-        $role = Role::create(['name' => 'Admin']);
-        $permissions = Permission::pluck('id', 'id')->all();
-        $role->syncPermissions($permissions);
-        $user->assignRole([$role->id]);
+        $this->call(PermissionTableSeeder::class);
+        $this->call(UserTableSeeder::class);
 
-        User::create([
-            'name' => 'Test',
-            'email' => 'test@mail.com',
-            'password' => bcrypt('password'),
-            // 'logo' => fake()->imageUrl(),
-        ]);
-
-        User::factory(5)->create();
         Language::factory(3)->create();
         Dialect::factory(25)->create();
         Term::factory(50)->create();
