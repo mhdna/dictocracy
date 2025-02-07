@@ -18,7 +18,8 @@ class Definition extends Model
         'user_id',
         'term_id',
         'definition',
-        'example'
+        'example',
+        'is_approved'
     ];
 
     public $with = ['term', 'user'];

@@ -17,7 +17,7 @@
                     <tr>
                         <th
                             class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                            No</th>
+                            ID</th>
                         <th
                             class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
                             Name</th>
@@ -34,7 +34,7 @@
                 <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-700 dark:divide-gray-600">
                     @foreach ($data as $key => $user)
                         <tr>
-                            <td class="px-6 py-4 text-sm font-medium text-gray-800 dark:text-gray-100">{{ ++$i }}
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 dark:text-gray-100">{{ $user->id }}
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ $user->name }}</td>
                             <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ $user->email }}</td>

@@ -8,6 +8,7 @@
     @method('DELETE')
 
     @can('definition-delete')
-        <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
+        <button onsubmit="return confirm('Are you sure?');" type="submit" class="btn btn-danger btn-sm"><i
+                class="fa-solid fa-trash"></i> Delete</button>
     @endcan
 </form>

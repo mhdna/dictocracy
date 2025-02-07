@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="flex items-center justify-center px-4">
-        <div class="mb-10 w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="mb-10 w-full max-w-md p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-6">Register</h2>
 
             @if (session('error'))
@@ -53,7 +53,7 @@
                         class="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                <button type="submit" class="w-full bg-red-900 text-white py-2 rounded-lg hover:bg-red-950 transition">
                     Register
                 </button>
             </form>

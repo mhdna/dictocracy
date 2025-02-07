@@ -6,23 +6,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>Dictocracy: @yield('title')</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} "> <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    {{-- required for autocompletion --}}
-    {{-- TODO jquery local install --}}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap"
-        rel="stylesheet">
-
-
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap3-typeahead.min.js') }}"></script>
 </head>
 
-<body class="text-black dark:bg-[#111111] bg-[#eeeeee] dark:text-white flex flex-col min-h-screen">
+<body class="text-black dark:bg-[#000000] bg-[#ffffff] dark:text-white flex flex-col min-h-screen">
     <div class="flex-1">
         @include('partials.header')
 
@@ -82,13 +73,11 @@
         }
     });
 
-    // Function to show the notification
     function showNotification(id, message) {
         const notification = document.getElementById(id);
         notification.classList.remove('hidden');
         notification.innerHTML = message;
 
-        // After 5 seconds, hide the notification
         setTimeout(() => {
             notification.classList.add('hidden');
         }, 2000);

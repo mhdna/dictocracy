@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('definition/{definition}/unvote', [DefinitionVoteController::class, 'unvote'])->name('definition.unvote');
 
     Route::get('/account', [ProfileController::class, 'account'])->name('account');
+
+    Route::delete('/logout', [SessionController::class,  'destroy']);
 });
 
 
@@ -49,6 +51,5 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [SessionController::class,  'store']);
 });
 
-Route::delete('/logout', [SessionController::class,  'destroy'])->middleware('auth');
 
 Auth::routes();

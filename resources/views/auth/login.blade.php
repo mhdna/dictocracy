@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="flex items-center justify-center px-4">
-        <div class="mb-10 w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="mb-10 w-full max-w-md p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-6">Login</h2>
 
             @if (session('error'))
@@ -46,7 +46,7 @@
                     </label>
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                <button type="submit" class="w-full bg-red-900 text-white py-2 rounded-lg hover:bg-red-950 transition">
                     Login
                 </button>
             </form>

@@ -10,17 +10,6 @@
             </a>
         </div>
 
-        @if (count($errors) > 0)
-            <div class="bg-red-100 text-red-800 p-4 rounded-lg mb-4 dark:bg-red-900 dark:text-red-400">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <form method="POST" action="{{ route('users.update', $user->id) }}">
             @csrf
             @method('PUT')

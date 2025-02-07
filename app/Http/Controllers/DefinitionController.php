@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Definition as DefinitionDefinition;
 use Illuminate\View\View;
 use App\Http\Requests\StoreTermRequest;
 use App\Http\Requests\UpdateTermRequest;
@@ -25,17 +26,12 @@ class DefinitionController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            // if (auth()->user()->hasRole('admin')) {
-            //     return $next($request);
-            // }
-
             $this->middleware('permission:definition-edit', ['only' => ['edit', 'update']]);
             $this->middleware('permission:definition-delete', ['only' => ['destroy']]);
 
             return $next($request);
         });
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -77,8 +73,7 @@ class DefinitionController extends Controller
             'example' => $request->example ?? ''
         ]);
 
-
-        return redirect()->route('definitions.index')
+        return redirect()->route('home')
             ->with('success', 'definition created successfully.');
     }
 
@@ -106,9 +101,13 @@ class DefinitionController extends Controller
             'definition' => 'required',
         ]);
 
-        $definition->update($request->all());
+        $updateData = $request->all();
+        $updateData['is_approved'] = false; // definition waits approval again on edit
+        $updateData['example'] = $updateData['example'] ?? ''; // example is optional
 
-        return redirect()->route('definitions.index')
+        $definition->update($updateData);
+
+        return redirect()->route('home')
             ->with('success', 'definition updated successfully');
     }
 
@@ -122,18 +121,6 @@ class DefinitionController extends Controller
         ]);
     }
 
-    public function userDefinition(string $term)
-    {
-        $user = Auth::user();
-        $definition = Definition::whereHas('term', function ($query) use ($term) {
-            $query->where('term', $term);
-        })->where('user_id', $user->id)->with('term')->first();
-
-        return view('definitions.user_definition', [
-            'term' => $term,
-            'definition' => $definition
-        ]);
-    }
     /**
      * Remove the specified resource from storage.
      *
@@ -144,7 +131,7 @@ class DefinitionController extends Controller
     {
         $definition->delete();
 
-        return redirect()->route('definitions.index')
+        return redirect()->route('home')
             ->with('success', 'Your definition was deleted successfully.');
     }
 }

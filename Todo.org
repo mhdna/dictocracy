@@ -1,3 +1,0 @@
-* Things to do today.
-- [ ] Finish authentication
-- [ ] Basic Dashboard

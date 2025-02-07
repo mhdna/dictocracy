@@ -12,6 +12,7 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
+        // sort alphabatically on search
         $terms = Term::where('term', 'Like', '%' . $query . '%')->orderBy('term', 'asc')
             ->get(); // mhd: pagination won't work easily on those
 
