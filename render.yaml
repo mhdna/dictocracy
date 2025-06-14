@@ -4,22 +4,14 @@ services:
     name: laravel-redis
     plan: starter
     maxmemoryPolicy: allkeys-lru
+    ipAllowList: []
 
   # Web Service (Laravel App)
   - type: web
     name: laravel-app
-    env: php
+    runtime: docker
     plan: starter
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-      npm ci
-      npm run build
-      php artisan config:cache
-      php artisan route:cache
-      php artisan view:cache
-    startCommand: |
-      php artisan migrate --force
-      php artisan serve --host=0.0.0.0 --port=$PORT
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_ENV
         value: production
@@ -62,31 +54,20 @@ services:
         value: redis
       - key: QUEUE_CONNECTION
         value: redis
-      - key: REDIS_HOST
+      - key: REDIS_URL
         fromService:
           type: redis
           name: laravel-redis
-          property: host
-      - key: REDIS_PASSWORD
-        fromService:
-          type: redis
-          name: laravel-redis
-          property: password
-      - key: REDIS_PORT
-        fromService:
-          type: redis
-          name: laravel-redis
-          property: port
+          property: connectionString
     healthCheckPath: /health
 
   # Background Worker (Queue Processing)
   - type: worker
     name: laravel-worker
-    env: php
+    runtime: docker
     plan: starter
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-    startCommand: php artisan queue:work --verbose --tries=3 --timeout=90
+    dockerfilePath: ./Dockerfile
+    dockerCommand: php artisan queue:work --verbose --tries=3 --timeout=90
     envVars:
       - key: APP_ENV
         value: production
@@ -118,31 +99,20 @@ services:
           property: password
       - key: QUEUE_CONNECTION
         value: redis
-      - key: REDIS_HOST
+      - key: REDIS_URL
         fromService:
           type: redis
           name: laravel-redis
-          property: host
-      - key: REDIS_PASSWORD
-        fromService:
-          type: redis
-          name: laravel-redis
-          property: password
-      - key: REDIS_PORT
-        fromService:
-          type: redis
-          name: laravel-redis
-          property: port
+          property: connectionString
 
   # Cron Jobs (Task Scheduling)
   - type: cron
     name: laravel-scheduler
-    env: php
+    runtime: docker
     plan: starter
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
+    dockerfilePath: ./Dockerfile
     schedule: "* * * * *"
-    startCommand: php artisan schedule:run
+    dockerCommand: php artisan schedule:run
     envVars:
       - key: APP_ENV
         value: production
@@ -172,6 +142,11 @@ services:
         fromDatabase:
           name: laravel-db
           property: password
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: laravel-redis
+          property: connectionString
 
 databases:
   - name: laravel-db
