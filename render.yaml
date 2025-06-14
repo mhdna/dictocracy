@@ -1,4 +1,10 @@
 services:
+  # Redis Service
+  - type: redis
+    name: laravel-redis
+    plan: starter
+    maxmemoryPolicy: allkeys-lru
+
   # Web Service (Laravel App)
   - type: web
     name: laravel-app
@@ -171,8 +177,4 @@ databases:
   - name: laravel-db
     databaseName: laravel_production
     user: laravel_user
-    plan: starter
-
-  - name: laravel-redis
-    type: redis
     plan: starter
