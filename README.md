@@ -1,4 +1,6 @@
-# Dictocracy Laravel Project
+# Dictocracy
+<img width="1592" height="735" alt="image" src="https://github.com/user-attachments/assets/2ef19d5a-356b-4bb6-9e24-4e08e0440049" />
+
 
 ## Description
 
